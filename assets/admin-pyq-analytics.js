@@ -1,0 +1,7 @@
+import { supabase } from "./supabase.js";
+function esc(v=""){return String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
+const bar=v=>`<div class="mini-bar"><i style="width:${Math.max(0,Math.min(100,Number(v)||0))}%"></i></div>`;
+const list=(rows,label,acc)=>rows?.length?rows.slice(0,12).map(x=>`<div class="admin-row"><div><b>${esc(label(x))}</b><span>${x.attempts} answers • ${x.correct} correct</span></div><strong>${x.accuracy??0}% ${bar(x.accuracy||0)}</strong></div>`).join(""):`<div class="empty">No Quiz 2.0 response data yet.</div>`;
+async function load(){
+ const ov=document.querySelector('#adminPyqOverview');try{const {data,error}=await supabase.rpc('get_admin_pyq_analytics');if(error)throw error;const o=data?.overview||{};ov.innerHTML=`<div><b>${o.responses||0}</b><span>Responses</span></div><div><b>${o.correct||0}</b><span>Correct</span></div><div><b>${o.wrong||0}</b><span>Wrong</span></div><div><b>${o.pyq_responses||0}</b><span>PYQ Responses</span></div>`;document.querySelector('#adminPyqTopics').innerHTML=list(data.topics,x=>x.topic);document.querySelector('#adminPyqYears').innerHTML=list(data.years,x=>x.year);document.querySelector('#adminPyqTiers').innerHTML=list(data.tiers,x=>x.tier);}catch(e){console.error(e);ov.innerHTML=`<div class="empty">${esc(e.message||'Unable to load PYQ analytics. Run v17 SQL first.')}</div>`;}}
+load();
