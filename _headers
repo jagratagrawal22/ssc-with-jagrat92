@@ -1,0 +1,24 @@
+/*
+  SSC With Jagrat — production security headers.
+  If your host does not support _headers (e.g. Netlify), copy these
+  directives to the equivalent host/CDN configuration.
+  Supabase and Razorpay are explicitly allowed because the app uses them.
+*/
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(self https://checkout.razorpay.com)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net https://checkout.razorpay.com; style-src 'self'; img-src 'self' data: blob: https:; font-src 'self' data: https:; media-src 'self' blob: https:; connect-src 'self' https://*.supabase.co https://checkout.razorpay.com https://api.razorpay.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://checkout.razorpay.com https://*.herokuapp.com; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests
+
+/admin.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/account.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/login.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/reset-password.html
+  X-Robots-Tag: noindex, nofollow, noarchive
