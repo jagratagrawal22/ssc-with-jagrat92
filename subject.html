@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SSC With Jagrat | Subject</title>
+  <link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>SSC CGL 2026 • GK BATCH</small></div></div>
+  <div class="header-links">
+    <a id="subjectBatchBack" class="admin-link" href="batch.html?batch=4.0">← My Batch</a>
+  </div>
+</header>
+<main>
+  <section class="subject-hero">
+    <a id="subjectBackLink" class="back-link" href="batch.html?batch=4.0">← Back to My Batch</a>
+    <div class="subject-heading">
+      <div id="subjectIcon" class="subject-page-icon">📚</div>
+      <div><span class="pill">📚 SSC CGL 2026 • GK / GS</span><h1 id="subjectName">Loading...</h1></div>
+    </div>
+  </section>
+  <section class="toolbar subject-toolbar">
+    <input id="search" placeholder="🔎 Search chapter or class...">
+  </section>
+  <section id="subjectProgress" class="subject-progress-panel hidden"></section>
+  <section id="mindMaps" class="mind-maps-section hidden"></section>
+  <section id="historyParts" class="history-parts-section hidden"></section>
+  <section id="classes" class="class-list"></section>
+</main>
+<footer>© SSC With Jagrat • SSC CGL 2026</footer>
+<script>
+(()=>{const p=new URLSearchParams(location.search),b=p.get("batch")==="5.0"?"5.0":"4.0";const u=`batch.html?batch=${b}`;document.querySelector("#subjectBatchBack").href=u;document.querySelector("#subjectBackLink").href=u;})();
+</script>
+<script type="module" src="assets/subject.js"></script>
+<script src="assets/access-popup.js"></script><script src="assets/menu.js"></script>
+<script src="assets/pwa.js"></script>
+</body></html>

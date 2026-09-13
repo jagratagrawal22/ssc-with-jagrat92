@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exam Simulator • SSC With Jagrat</title><link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script></head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>EXAM SIMULATOR</small></div></div><div class="header-links actions"><a class="admin-link" href="dashboard.html">Dashboard</a></div></header>
+<main class="exam-main">
+<section id="examSetup" class="panel exam-setup"><span class="pill">📝 SSC EXAM MODE</span><h1>Exam Simulator</h1><p>Practice GK/GS in a real-exam style environment with timer, question palette, mark-for-review and SSC-style negative marking.</p>
+<div class="exam-presets">
+ <button class="exam-preset active" data-count="25" data-minutes="15"><b>GK/GS Mock</b><span>25 Questions • 15 Minutes • 50 Marks</span></button>
+ <button class="exam-preset" data-count="50" data-minutes="30"><b>Extended Mock</b><span>50 Questions • 30 Minutes • 100 Marks</span></button>
+ <button class="exam-preset" data-count="100" data-minutes="60"><b>Full Practice Mock</b><span>100 Questions • 60 Minutes • 200 Marks</span></button>
+</div>
+<div class="ai-smart-mock-panel">
+ <div class="ai-smart-head"><span class="pill ai-pill">🤖 AI SMART MOCK</span><div><h2>Build a Realistic SSC / Railway Mock with AI</h2><p>Use verified PYQs from your question bank, AI practice questions, or a mixed exam. AI-created questions are always labelled AI Practice.</p></div></div>
+ <div class="ai-smart-grid">
+  <label>Exam<select id="aiExamExam"><option>SSC CGL</option><option>SSC CHSL</option><option>Railway</option></select></label>
+  <label>AI subject<select id="aiExamSubject"><option value="gk_gs">GK / GS</option><option value="maths">Maths</option><option value="reasoning">Reasoning</option><option value="english">English</option><option value="general">Mixed</option></select></label>
+  <label>Chapter / custom focus<input id="aiExamChapter" placeholder="e.g. Making of Constitution"></label>
+ </div>
+ <div class="ai-smart-modes"><button id="startAIMock" class="quiz-submit">🤖 GENERATE AI SMART MOCK</button><span>25 / 50 / 100 questions • same timer, palette, review and negative marking experience</span></div>
+</div>
+<div class="exam-filters">
+ <label>Question source<select id="examSource"><option value="all">All Questions</option><option value="pyq">PYQ Only</option><option value="practice">Practice Only</option></select></label>
+ <label>Difficulty<select id="examDifficulty"><option value="all">All Levels</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></label>
+ <label>Topic<select id="examTopic"><option value="all">All Topics</option></select></label>
+</div>
+<div id="examBlueprint" class="exam-blueprint"></div>
+<div class="exam-rules"><b>Before you start</b><ul><li>+2 marks for a correct answer.</li><li>−0.5 marks for a wrong answer.</li><li>Unanswered questions get 0 marks.</li><li>Time expiry automatically submits the exam.</li></ul></div>
+<button id="startExam" class="quiz-submit">START EXAM</button><div id="examSetupMsg" class="msg"></div></section>
+<section id="examStage" class="hidden">
+ <div class="exam-top panel"><div><span class="pill">EXAM IN PROGRESS</span><h2 id="examTitle">SSC GK/GS Mock</h2><small id="examCounter">0 / 25 answered</small></div><div class="exam-clock" id="examClock">15:00</div><button id="finishExam" class="outline">Submit Exam</button></div>
+ <div class="exam-layout"><section class="panel exam-questions" id="examQuestions"></section><aside class="panel exam-side"><h3>Question Palette</h3><div id="examPalette" class="exam-palette"></div><div class="palette-legend"><span><i class="answered-dot"></i> Answered</span><span><i class="review-dot"></i> Review</span><span><i></i> Not visited</span></div><button id="clearAll" class="outline full">Clear Answers</button></aside></div>
+</section>
+<section id="examResult" class="panel hidden"></section>
+</main>
+<script type="module" src="assets/exam-simulator.js"></script><script src="assets/access-popup.js"></script><script src="assets/menu.js"></script><script src="assets/pwa.js"></script></body></html>

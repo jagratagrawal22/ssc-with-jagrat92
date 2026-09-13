@@ -1,0 +1,189 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Panel • SSC With Jagrat</title><link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script><style>
+/* Admin compact intelligence accordions */
+.admin-collapsible{margin-top:14px;border:1px solid #e4e7ec;border-radius:14px;background:#fff;overflow:hidden}
+.admin-collapsible-panel{padding:0}
+.admin-collapsible summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 15px;cursor:pointer;font-size:15px;font-weight:800;color:#111827;user-select:none}
+.admin-collapsible summary::-webkit-details-marker{display:none}
+.admin-collapsible summary:focus-visible{outline:3px solid rgba(99,102,241,.25);outline-offset:-3px}
+.admin-collapse-arrow{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:#f2f4f7;color:#475467;font-size:25px;line-height:1;transition:transform .2s ease,background .2s ease}
+.admin-collapsible[open] .admin-collapse-arrow{transform:rotate(90deg);background:#eef2ff;color:#4f46e5}
+.admin-collapsible summary:hover .admin-collapse-arrow{background:#eef2ff;color:#4f46e5}
+.admin-collapsible-body{padding:0 15px 15px;border-top:1px solid #f0f2f5}
+.admin-collapse-description{padding:12px 0 2px}
+@media(max-width:700px){
+ .admin-collapsible{margin-top:10px;border-radius:12px}
+ .admin-collapsible summary{min-height:50px;padding:0 12px;font-size:14px}
+ .admin-collapsible-body{padding:0 10px 12px}
+}
+</style></head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>ADMIN PANEL</small></div></div>
+<div class="header-links actions"><a class="admin-link" href="index.html">Website</a><button id="logout" class="outline">Logout</button></div></header>
+<main class="admin-main">
+<section class="stats"><div><b id="sSubjects">0</b><span>Subjects</span></div><div><b id="sClasses">0</b><span>Classes</span></div><div><b id="sPdfs">0</b><span>PDFs</span></div></section>
+
+<section id="analyticsPanel" class="panel">
+  <div class="panel-head"><h2>📊 Analytics Overview</h2></div>
+  <div id="overviewStats" class="stats stats-4"><div class="empty">Loading...</div></div>
+  <details class="admin-collapsible">
+    <summary><span>Class Engagement</span><span class="admin-collapse-arrow" aria-hidden="true">›</span></summary>
+    <div class="admin-collapsible-body">
+      <div id="engagementList"><div class="empty">Loading...</div></div>
+    </div>
+  </details>
+</section>
+<section id="adminIntelligencePanel" class="panel admin-collapsible-panel">
+  <details class="admin-collapsible">
+    <summary><span>🧠 Admin Intelligence Center</span><span class="admin-collapse-arrow" aria-hidden="true">›</span></summary>
+    <div class="admin-collapsible-body">
+      <div class="admin-help admin-collapse-description">Content health • engagement signals • action priorities</div>
+      <div id="adminIntelStats" class="stats stats-4"><div class="empty">Analyzing your platform...</div></div>
+      <div class="performance-grid admin-analytics-grid" style="margin-top:14px">
+        <div><h3 class="quiz-form-heading">🚨 Action Priorities</h3><div id="adminIntelActions"></div></div>
+        <div><h3 class="quiz-form-heading">📚 Content Health</h3><div id="adminIntelContent"></div></div>
+      </div>
+      <div style="margin-top:14px"><h3 class="quiz-form-heading">💡 Admin Recommendations</h3><div id="adminIntelRecommendations"></div></div>
+    </div>
+  </details>
+</section>
+<section id="pyqAnalyticsPanel" class="panel admin-collapsible-panel">
+  <details class="admin-collapsible">
+    <summary><span>🧠 PYQ & Topic Intelligence</span><span class="admin-collapse-arrow" aria-hidden="true">›</span></summary>
+    <div class="admin-collapsible-body">
+      <div id="adminPyqOverview" class="stats stats-4"><div class="empty">Loading...</div></div>
+      <div class="performance-grid admin-analytics-grid">
+        <div><h3 class="quiz-form-heading">Weak Topics</h3><div id="adminPyqTopics"></div></div>
+        <div><h3 class="quiz-form-heading">PYQ Years</h3><div id="adminPyqYears"></div></div>
+      </div>
+      <div><h3 class="quiz-form-heading">Tier / Shift</h3><div id="adminPyqTiers"></div></div>
+    </div>
+  </details>
+</section>
+<section class="panel"><div class="panel-head"><h2 id="formTitle">Add New Class</h2><button id="cancelEdit" class="outline hidden">Cancel Edit</button></div>
+<form id="classForm" class="form-grid">
+<input type="hidden" id="editId">
+<label>Batch<select id="batch" required><option value="4.0">PARMAR GK BATCH 4.0</option><option value="5.0">PARMAR GK BATCH 5.0</option></select></label>
+<label>Subject<select id="subject" required></select></label>
+<label>Class number<input id="classNo" placeholder="01" required></label>
+<label class="wide">Title<input id="title" placeholder="Ancient India — Complete Class" required></label>
+<label id="eraWrap" class="hidden">History Section (optional)<select id="era"><option value="">— No section (shows in main list) —</option><option value="ancient">Ancient History</option><option value="medieval">Medieval History</option><option value="modern">Modern History</option></select></label>
+<label class="wide">Video Source
+  <div class="video-source-toggle">
+    <label class="radio-inline"><input type="radio" name="videoSource" id="srcYoutube" value="youtube" checked> YouTube Link</label>
+    <label class="radio-inline"><input type="radio" name="videoSource" id="srcStream" value="stream"> Stream Link</label>
+    <label class="radio-inline"><input type="radio" name="videoSource" id="srcUpload" value="upload"> Upload Video File</label>
+  </div>
+</label>
+<label class="wide" id="videoUrlWrap">YouTube Video Link<input id="videoUrl" type="url" placeholder="https://www.youtube.com/watch?v=..."></label>
+<label class="wide hidden" id="videoStreamWrap">Stream Video Link<input id="videoStreamUrl" type="url" placeholder="https://.../stream/..." autocomplete="off"><small>Use a direct browser-playable video/stream URL. If the link expires, replace it with a fresh one.</small></label>
+<label class="wide hidden" id="videoUploadWrap">Video File<input id="videoFile" type="file" accept="video/mp4,video/webm,video/ogg,video/quicktime"><small id="currentVideoFile" class="current-file"></small></label>
+<label>Practice Sheet PDF<input id="practice" type="file" accept=".pdf"></label>
+<label>Notes PDF<input id="notes" type="file" accept=".pdf"></label>
+<label>Mock Test HTML / Link<input id="mockUrl" type="url" placeholder="https://..."></label>
+<label>Thumbnail URL (optional)<input id="thumb" type="url"></label>
+<label class="check"><input id="published" type="checkbox" checked> Published</label>
+<button class="wide">SAVE CLASS</button><div id="formMsg" class="msg wide"></div>
+</form></section>
+<section class="panel" id="mindMapAdminPanel">
+  <div class="panel-head"><h2>🧠 Mind Maps</h2></div>
+  <p class="admin-help">Select a batch + subject and upload only its Mind Map PDF. 4.0 and 5.0 are stored separately.</p>
+  <form id="mindMapForm" class="form-grid">
+    <label>Batch<select id="mindMapBatch" required><option value="4.0">PARMAR GK BATCH 4.0</option><option value="5.0">PARMAR GK BATCH 5.0</option></select></label>
+    <label>Subject<select id="mindMapSubject" required></select></label>
+    <label>Mind Map — English<input id="mindMapEnglishFile" type="file" accept=".pdf"><small id="currentMindMapEnglish" class="current-file"></small></label>
+    <label>Mind Map — Hindi<input id="mindMapHindiFile" type="file" accept=".pdf"><small id="currentMindMapHindi" class="current-file"></small></label>
+    <button class="wide">SAVE MIND MAP PDFs</button><div id="mindMapMsg" class="msg wide"></div>
+  </form>
+</section>
+<section id="quizManagerLauncher" class="panel quiz-launcher">
+  <div class="panel-head"><h2>📝 Quiz Management</h2></div>
+  <p class="admin-help">Select a class below to add, edit, delete, or reorder its quiz questions.</p>
+  <div class="quiz-launcher-row">
+    <select id="quizClassSelect" aria-label="Select class for quiz management">
+      <option value="">Select a class...</option>
+    </select>
+    <button id="openQuizManager" type="button">OPEN QUIZ MANAGEMENT</button>
+  </div>
+  <div id="quizLauncherMsg" class="msg"></div>
+</section>
+
+<section id="subscriptionAdminPanel" class="panel">
+  <div class="panel-head"><h2>💳 Subscription & Entitlements</h2></div>
+  <p class="admin-help">Give any registered student full Pro access for a selected period. No Razorpay payment is required for admin-granted access.</p>
+  <div class="admin-grant-box">
+    <h3 class="quiz-form-heading">🎁 Grant Free Subscription</h3>
+    <form id="adminGrantSubscriptionForm" class="form-grid">
+      <label class="wide">Student Email<input id="grantEmail" type="email" required placeholder="student@example.com" autocomplete="off"></label>
+      <label>Access Duration<select id="grantDuration" required>
+        <option value="1">1 Month</option>
+        <option value="6">6 Months</option>
+        <option value="12">1 Year</option>
+      </select></label>
+      <button type="submit">GRANT FREE ACCESS</button>
+      <div id="grantSubscriptionMsg" class="msg wide"></div>
+    </form>
+  </div>
+  <div id="adminSubscriptionOverview" class="stats stats-4"><div class="empty">Loading...</div></div>
+  <div id="adminSubscriptionPlans"></div>
+</section>
+<section id="questionBankAdminPanel" class="panel">
+  <div class="panel-head"><h2>📚 Advanced Question Bank</h2></div>
+  <p class="admin-help">Bulk import/export, search, metadata filters and non-destructive archiving. Imported rows are added only; existing questions are never overwritten.</p>
+  <div class="qb-toolbar">
+    <input id="qbSearch" placeholder="Search question, topic, class...">
+    <select id="qbSubject"><option value="">All subjects</option></select>
+    <select id="qbDifficulty"><option value="">All difficulty</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select>
+    <select id="qbPyq"><option value="">All questions</option><option value="yes">PYQ only</option><option value="no">Non-PYQ</option></select>
+    <select id="qbArchived"><option value="active">Active only</option><option value="archived">Archived only</option><option value="all">All</option></select>
+  </div>
+  <div class="qb-actions">
+    <button type="button" id="qbSelectVisible" class="outline">Select Visible</button><button type="button" id="qbClearSelection" class="outline">Clear Selection</button>
+    <button type="button" id="qbArchive" class="danger">Archive Selected</button><button type="button" id="qbRestore" class="outline">Restore Selected</button>
+    <button type="button" id="qbExport" class="outline">Export CSV</button><button type="button" id="qbTemplate" class="outline">CSV Template</button>
+    <label class="button-like">Import CSV<input id="qbImport" type="file" accept=".csv,.txt" hidden></label>
+    <span id="qbSelectedCount" class="admin-help">0 selected</span>
+  </div>
+  <div id="qbImportMsg" class="msg"></div><div id="qbMsg" class="msg"></div><div id="qbList" class="admin-qb-list"></div>
+</section>
+
+<section class="panel"><div class="panel-head"><h2>Manage Classes</h2><input id="adminSearch" placeholder="Search..."></div><div id="adminList"></div></section>
+
+<section id="quizPanel" class="panel hidden">
+  <div class="panel-head"><h2 id="quizPanelTitle">Manage Quiz</h2><button id="closeQuizPanel" class="outline">Close</button></div>
+  <div id="quizQuestionList"></div>
+  <h3 id="quizFormTitle" class="quiz-form-heading">Add Question</h3>
+  <form id="quizQForm" class="form-grid">
+    <input type="hidden" id="quizEditId">
+    <label class="wide">Question<textarea id="qText" required></textarea></label>
+    <label>Option A<input id="qA" required></label>
+    <label>Option B<input id="qB" required></label>
+    <label>Option C<input id="qC" required></label>
+    <label>Option D<input id="qD" required></label>
+    <label>Correct Answer<select id="qCorrect"><option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option></select></label>
+    <label class="wide">Explanation (optional)<input id="qExplain"></label>
+    <label>Topic (optional)<input id="qTopic" placeholder="e.g. Fundamental Rights"></label>
+    <label>Difficulty<select id="qDifficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></label>
+    <label class="check"><input id="qIsPyq" type="checkbox"> PYQ Question</label>
+    <label>PYQ Year<input id="qPyqYear" type="number" min="1990" max="2100" placeholder="2025"></label>
+    <label>PYQ Tier / Shift<input id="qPyqTier" placeholder="Tier 1 / Shift 2"></label>
+    <button id="quizSaveBtn" class="wide">ADD QUESTION</button>
+    <div id="quizFormMsg" class="msg wide"></div>
+  </form>
+</section>
+
+<section id="dailyPanel" class="panel">
+  <div class="panel-head"><h2>📰 Manage Daily GK Updates</h2></div>
+  <form id="dailyForm" class="form-grid">
+    <label>Date<input id="dUpdateDate" type="date" required></label>
+    <label class="wide">Title<input id="dTitle" required placeholder="e.g. RBI announces new repo rate"></label>
+    <label class="wide">Details<textarea id="dBody" required></textarea></label>
+    <label class="check"><input id="dPublished" type="checkbox" checked> Published</label>
+    <button class="wide">ADD UPDATE</button>
+    <div id="dailyFormMsg" class="msg wide"></div>
+  </form>
+  <div id="dailyAdminList"></div>
+</section>
+</main><script type="module" src="assets/admin.js"></script><script type="module" src="assets/admin-quiz.js"></script><script type="module" src="assets/admin-daily.js"></script><script type="module" src="assets/admin-analytics.js"></script><script type="module" src="assets/admin-pyq-analytics.js"></script><script type="module" src="assets/admin-intelligence.js"></script><script type="module" src="assets/admin-question-bank.js"></script><script type="module" src="assets/admin-subscriptions.js"></script><script src="assets/access-popup.js"></script><script src="assets/menu.js"></script><script src="assets/pwa.js"></script></body></html>

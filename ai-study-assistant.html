@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Study Assistant | SSC With Jagrat</title>
+<link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0b1020"><link rel="icon" href="assets/icons/icon-192.png">
+</head><body>
+<header class="topbar"><div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>SSC CGL 2026 • AI TUTOR</small></div></div><div class="header-links"><a class="admin-link" href="dashboard.html">← Dashboard</a></div></header>
+<main class="ai-main">
+  <section class="ai-hero"><div><span class="pill">🤖 SSC AI TUTOR</span><h1>AI Study Assistant</h1><p>Ask questions, get step-by-step explanations, or generate targeted SSC practice from your weak areas.</p></div><div><div class="ai-subject-badge">Maths • Reasoning • English • GK/GS</div><div id="aiConfigStatus" class="integration-status pending">⚙️ AI service: checking...</div></div></section>
+  <section class="ai-layout">
+    <div class="panel ai-chat-panel">
+      <div class="ai-chat-header"><div class="ai-chat-avatar">🤖</div><div class="ai-chat-title"><b>SSC AI Tutor</b><span>Personal study assistant • SSC CGL 2026</span></div><span class="ai-live-dot">● Online</span><button id="aiHistoryBtn" class="ai-header-btn" type="button" aria-label="Open chat history">☰ History</button><button id="aiNewChat" class="ai-header-btn" type="button">＋ New chat</button></div>
+      <div id="aiHistoryDrawer" class="ai-history-drawer hidden"><div class="ai-history-head"><b>Recent chats</b><button id="aiCloseHistory" type="button">×</button></div><div id="aiHistoryList" class="ai-history-list"><span class="muted">No saved chats yet.</span></div></div>
+      <div class="ai-coach-strip">
+        <div class="ai-coach-intro"><span class="ai-coach-icon">✨</span><div><b>AI Study Coach</b><small>Choose a goal and start studying</small></div></div>
+        <div class="ai-coach-actions">
+          <button type="button" data-coach="explain">📚 Explain Topic</button>
+          <button type="button" data-coach="solve">🧩 Solve My Question</button>
+          <button type="button" data-coach="practice">📝 5 Practice Questions</button>
+          <button type="button" data-coach="revision">🗓️ Revision Plan</button>
+          <button type="button" data-coach="shortcut">⚡ Exam Shortcut</button>
+          <button type="button" data-coach="english">📖 English Practice</button>
+          <button type="button" data-coach="gk">🌍 GK Quick Test</button>
+        </div>
+      </div>
+      <div class="ai-toolbar">
+        <label>Subject<select id="aiSubject"><option value="gk_gs">🌍 GK / GS</option><option value="maths">📐 Maths / Quant</option><option value="reasoning">🧠 Reasoning</option><option value="english">📖 English</option><option value="general">🎯 Mixed SSC</option></select></label>
+        <label>Mode<select id="aiMode"><option value="tutor">Ask / Explain</option><option value="explain">Explain my question</option><option value="practice">Generate Practice</option><option value="similar">Similar Questions</option></select></label>
+        <label>Difficulty<select id="aiDifficulty"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></label>
+      </div>
+      <div id="aiMessages" class="ai-messages"><div class="ai-message assistant welcome-message"><div class="ai-message-brand"><span class="ai-mini-avatar">🤖</span><div><b>SSC AI Tutor</b><small>Ready to help with SSC CGL 2026</small></div></div><p>Namaste! Ask me anything from Maths, Reasoning, English or GK/GS. You can also generate a practice set from your weak topics.</p><div class="ai-suggestions"><button type="button" data-prompt="Explain percentage in a simple way with 3 SSC-level examples.">📐 Explain Percentage</button><button type="button" data-prompt="Give me 5 SSC CGL reasoning questions for practice.">🧠 Practice Reasoning</button><button type="button" data-prompt="Explain the most important English grammar rules for SSC CGL.">📖 English Rules</button><button type="button" data-prompt="Explain Fundamental Rights in an SSC exam-oriented way.">🌍 GK / GS</button></div></div></div>
+      <div id="aiPracticeArea" class="hidden"></div>
+      <div class="ai-followup-bar"><span>Continue:</span><button type="button" data-follow="continue">↩ Continue</button><button type="button" data-follow="harder">🔥 Harder example</button><button type="button" data-follow="quiz">🧠 Quiz me</button><button type="button" data-follow="summary">📌 Summarize</button></div>
+      <div class="ai-composer-wrap"><div class="ai-composer-top"><span>💬 Message SSC AI Tutor</span><button id="aiClearChat" type="button">Clear chat</button></div><form id="aiForm" class="ai-input-form"><textarea id="aiPrompt" rows="3" maxlength="5000" placeholder="Ask anything… e.g. Explain percentage with 3 SSC-level examples."></textarea><div class="ai-input-bottom"><span id="aiCharCount">0/5000</span><span class="ai-composer-hint">Enter to send • Shift + Enter for new line</span><button class="primary" id="aiSend" type="submit">Ask AI →</button></div></form></div>
+      <div class="ai-quick"><span>Quick:</span><button type="button" data-prompt="Explain this topic step by step with an SSC CGL example.">📚 Explain topic</button><button type="button" data-prompt="Give me 5 SSC-level questions and answers for practice.">📝 Practice 5</button><button type="button" data-prompt="I got this question wrong. Explain the mistake and the shortcut.">❌ Why wrong?</button><button type="button" data-prompt="Give me similar questions to improve this topic.">🔄 Similar</button></div>
+    </div>
+    <aside class="ai-side">
+      <div class="panel"><h2>🎯 Your AI Context</h2><p class="muted">The assistant can use your weak topics and recent mistakes to make practice more relevant.</p><div id="aiWeakTopics" class="ai-context-list"><span class="muted">Loading...</span></div><button id="useWeakBtn" class="outline full" type="button">Practice My Weak Topics</button></div>
+      <div class="panel"><h2>✨ What you can ask</h2><ul class="ai-ideas"><li><b>Maths:</b> “Solve this percentage question step-by-step.”</li><li><b>Reasoning:</b> “Explain syllogism with shortcuts.”</li><li><b>English:</b> “Why is this sentence grammatically wrong?”</li><li><b>GK/GS:</b> “Explain Fundamental Rights for SSC.”</li><li><b>Practice:</b> “Generate 10 hard questions on profit & loss.”</li></ul></div>
+      <div class="panel ai-session-panel"><h2>📊 Study Session</h2><div class="ai-session-stats"><div><b id="aiMsgCount">0</b><span>Messages</span></div><div><b id="aiPracticeCount">0</b><span>Practice sets</span></div><div><b id="aiTopicLabel">—</b><span>Current subject</span></div></div></div>
+      <div class="panel ai-note"><b>⚡ Exam-focused</b><p>Answers are designed for SSC preparation. Always verify current-affairs facts before relying on them in an exam.</p></div>
+    </aside>
+  </section>
+</main><footer>© SSC With Jagrat • SSC CGL 2026</footer>
+<script type="module" src="assets/ai-study-assistant.js"></script><script src="assets/access-popup.js"></script><script src="assets/menu.js"></script><script src="assets/pwa.js"></script>
+</body></html>

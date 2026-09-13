@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Account | SSC With Jagrat</title>
+  <link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>SSC CGL 2026 • GK BATCH</small></div></div>
+  <div class="header-links">
+    <a class="admin-link" href="index.html">← Website</a>
+  </div>
+</header>
+<main class="account-main">
+
+  <section id="authSection" class="auth-card account-card">
+    <div class="logo big"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div>
+    <h1 id="authHeading">My Account</h1>
+    <div class="account-tabs">
+      <button id="tabLogin" class="tab-btn active">Login</button>
+      <button id="tabSignup" class="tab-btn">Sign Up</button>
+    </div>
+
+    <form id="loginForm" class="account-form">
+      <input id="loginEmail" type="email" placeholder="Email" required>
+      <input id="loginPassword" type="password" placeholder="Password" required>
+      <button>LOGIN</button>
+      <button type="button" id="forgotPasswordBtn" class="forgot-password-btn">Forgot Password?</button>
+    </form>
+
+    <form id="signupForm" class="account-form hidden">
+      <input id="signupName" type="text" placeholder="Full Name" autocomplete="name" minlength="2" maxlength="80" required>
+      <input id="signupEmail" type="email" placeholder="Email" autocomplete="email" required>
+      <input id="signupPassword" type="password" placeholder="Password (min 6 characters)" minlength="6" required>
+      <button>CREATE ACCOUNT</button>
+    </form>
+
+    <div id="authMsg" class="msg"></div>
+  </section>
+
+  <section id="accountSection" class="account-card hidden">
+    <div class="account-head">
+      <div>
+        <small>Logged in as</small>
+        <p id="userEmail"></p>
+      </div>
+      <button id="logoutBtn" class="outline">Logout</button>
+    </div>
+
+    <div class="profile-nav-links"><a href="dashboard.html">← Dashboard</a><a href="leaderboard.html">🏆 Leaderboard</a></div>
+    <div id="profilePanel" class="profile-panel">
+      <div class="profile-panel-head">
+        <div>
+          <small>Student Profile</small>
+          <h2>My Profile</h2>
+          <p>Keep your details updated. Your name is shown on the leaderboard.</p>
+        </div>
+        <div id="profileAvatarPreview" class="profile-avatar">👤</div>
+      </div>
+      <div class="profile-completion"><div><span>Profile completion</span><b id="profileCompletionText">0%</b></div><div class="profile-progress"><i id="profileProgressBar"></i></div></div>
+      <form id="profileForm" class="profile-form">
+        <label>Full Name<input id="profileName" type="text" autocomplete="name" minlength="2" maxlength="80" required></label>
+        <label>Exam Target<select id="profileExamTarget"><option value="">Select exam</option><option>SSC CGL</option><option>SSC CHSL</option><option>SSC MTS</option><option>SSC GD</option><option>Other SSC Exam</option></select></label>
+        <label>Study Goal<select id="profileStudyGoal"><option value="">Select goal</option><option>Build strong basics</option><option>Complete the syllabus</option><option>Improve accuracy</option><option>Improve speed</option><option>Daily practice</option><option>Revision &amp; mock tests</option></select></label>
+        <label>Profile Photo<input id="profileAvatar" type="file" accept="image/png,image/jpeg,image/webp"></label>
+        <div class="profile-actions"><button type="submit" class="profile-save-btn">SAVE PROFILE</button><span id="profileMsg" class="profile-msg"></span></div>
+      </form>
+    </div>
+
+    <section class="v50-profile-hero" id="v50ProfileHero">
+      <div class="v50-profile-main">
+        <div class="v50-avatar-xl" id="v50Avatar">👤</div>
+        <div class="v50-profile-identity">
+          <div class="v50-name-row"><h1 id="v50DisplayName">Student</h1><span id="v50ProBadge" class="v50-badge">FREE</span></div>
+          <p id="v50ExamLine">SSC Aspirant • Keep learning every day</p>
+          <small id="v50JoinedLine">Member</small>
+        </div>
+      </div>
+      <div class="v50-profile-level"><span>LEVEL</span><b id="v50Level">1</b><small id="v50XpText">0 XP</small><div class="v50-level-track"><i id="v50LevelBar"></i></div></div>
+    </section>
+
+    <section class="v50-stats-grid" id="v50Stats">
+      <div><span>🔥 Streak</span><b id="v50Streak">0</b><small>days</small></div>
+      <div><span>📝 Questions</span><b id="v50Questions">0</b><small>solved</small></div>
+      <div><span>🎯 Accuracy</span><b id="v50Accuracy">0%</b><small>overall</small></div>
+      <div><span>🏆 Rank</span><b id="v50Rank">—</b><small>leaderboard</small></div>
+      <div><span>📚 Classes</span><b id="v50Classes">0</b><small>completed</small></div>
+      <div><span>📕 Mistakes</span><b id="v50Mistakes">0</b><small>to revise</small></div>
+    </section>
+
+    <section class="v50-grid-2">
+      <div class="v50-panel"><div class="v50-panel-head"><div><small>YOUR JOURNEY</small><h2>Learning Overview</h2></div><a href="performance.html">View analytics →</a></div><div id="v50Journey" class="v50-journey-list"></div></div>
+      <div class="v50-panel"><div class="v50-panel-head"><div><small>ACHIEVEMENTS</small><h2>Badges</h2></div></div><div id="v50Badges" class="v50-badges"></div></div>
+    </section>
+
+    <section class="v50-panel"><div class="v50-panel-head"><div><small>QUICK ACTIONS</small><h2>Continue Preparing</h2></div></div><div class="v50-actions"><a href="dashboard.html">📊 Dashboard</a><a href="exam-simulator.html">📝 Take a Mock</a><a href="revision.html">🔁 Smart Revision</a><a href="mistake-book.html">📕 Mistake Book</a><a href="question-bank.html">❓ Question Bank</a><a href="ai-study-assistant.html">🤖 AI Study Coach</a></div></section>
+
+    <div id="subStatus" class="sub-status"></div>
+
+    <section class="free-access-notice">
+      <b>🎉 All content is currently FREE</b>
+      <span>All classes, videos, notes, practice sheets and mock tests are available without a paid subscription.</span>
+    </section>
+  </section>
+
+</main>
+<footer>© SSC With Jagrat • SSC CGL 2026</footer>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script type="module" src="assets/account.js"></script>
+<script src="assets/access-popup.js"></script><script src="assets/menu.js"></script>
+<script src="assets/pwa.js"></script>
+</body></html>

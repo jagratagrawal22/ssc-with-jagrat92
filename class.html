@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSC With Jagrat | Class</title>
+<link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>SSC CGL 2026 • GK BATCH</small></div></div>
+  <div class="header-links">
+    <a id="backSubject" class="admin-link" href="batch.html?batch=4.0">← My Batch</a>
+  </div>
+</header>
+<main class="class-page">
+  <div id="classLoading" class="empty">Loading class...</div>
+  <section id="classContent" class="hidden">
+    <a id="subjectBack" class="back-link" href="#">← Back to subject</a>
+    <div class="class-breadcrumb" id="breadcrumb"></div>
+    <h1 id="classTitle"></h1>
+    <section id="classJourney" class="class-journey-card hidden"></section>
+    <div class="watch-layout">
+      <div class="video big-video" id="player"></div>
+      <aside class="class-side">
+        <div class="side-title">📚 Class Resources</div>
+        <button id="practiceBtn" class="resource practice hidden">📄 Class PNG</button>
+        <button id="notesBtn" class="resource notes hidden">📘 Notes PDF</button>
+        <a id="mockBtn" class="resource mock hidden" target="_blank" rel="noopener">📝 Mock Test</a>
+        <button id="bookmarkBtn" class="bookmark-btn hidden">🔖 Save for Later</button>
+        <button id="completeBtn" class="complete-btn hidden">Mark as Complete</button>
+      </aside>
+    </div>
+    <section id="quizBox" class="quiz-box hidden"></section>
+    <div class="class-nav">
+      <a id="prevBtn" class="nav-btn hidden" href="#">← Previous Class</a>
+      <a id="allBtn" class="nav-btn center-btn" href="#">📚 All Classes</a>
+      <a id="nextBtn" class="nav-btn hidden" href="#">Next Class →</a>
+    </div>
+  </section>
+</main>
+<div id="pdfModal" class="pdf-modal hidden">
+  <div class="pdf-modal-inner">
+    <div class="pdf-modal-head">
+      <span id="pdfModalTitle">Document</span>
+      <a id="pdfOpenNewTab" class="pdf-open-tab" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <button id="pdfModalClose" class="pdf-modal-close" aria-label="Close">✕</button>
+    </div>
+    <iframe id="pdfFrame" src=""></iframe>
+  </div>
+</div>
+<footer>© SSC With Jagrat • SSC CGL 2026</footer>
+<script type="module" src="assets/class.js"></script>
+<script src="assets/access-popup.js"></script><script src="assets/menu.js"></script>
+<script src="assets/pwa.js"></script>
+</body></html>

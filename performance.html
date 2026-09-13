@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Performance Intelligence 2.0 • SSC With Jagrat</title><link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script></head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>PERFORMANCE</small></div></div><div class="header-links actions"><a class="admin-link" href="dashboard.html">Dashboard</a></div></header>
+<main class="performance-main">
+<section id="perfLoading" class="empty">Loading your performance intelligence...</section>
+<div id="perfContent" class="hidden">
+<section class="dashboard-hero v46-hero"><div><span class="pill">🧠 PERFORMANCE INTELLIGENCE 2.0</span><h1>Your SSC Preparation Analytics</h1><p>Track accuracy, consistency, subject strength, PYQ performance and the exact areas that need your attention.</p></div><a class="dashboard-primary" href="exam-simulator.html">Take a Mock →</a></section>
+<section class="stats perf-stats" id="perfStats"></section>
+<section class="panel v46-insight-panel"><div class="panel-head"><div><h2>📅 Study Consistency</h2><span class="muted">Question activity across the last 14 days</span></div><a href="progress-report.html" class="outline">Full Report</a></div><div id="activityChart" class="activity-chart"></div><div id="consistencyInsight"></div></section>
+<section class="performance-grid">
+  <section class="panel"><div class="panel-head"><h2>🎯 Weak Topics</h2><span class="muted">Lowest reliable accuracy</span></div><div id="weakTopics"></div></section>
+  <section class="panel"><div class="panel-head"><h2>🚀 What to Study Next</h2><span class="muted">Actionable priorities</span></div><div id="recommendations"></div></section>
+</section>
+<section class="panel"><div class="panel-head"><h2>📚 Subject Performance</h2><span class="muted">Accuracy by subject from answered questions</span></div><div id="subjectTable" class="analytics-table"></div></section>
+<section class="panel"><div class="panel-head"><h2>📖 Topic-wise Accuracy</h2><span class="muted">Detailed performance by topic</span></div><div id="topicTable" class="analytics-table"></div></section>
+<section class="performance-grid">
+  <section class="panel"><div class="panel-head"><h2>🗓️ PYQ Year Analysis</h2></div><div id="yearTable" class="analytics-table"></div></section>
+  <section class="panel"><div class="panel-head"><h2>🏷️ Tier / Shift Analysis</h2></div><div id="tierTable" class="analytics-table"></div></section>
+</section>
+<section class="panel"><div class="panel-head"><h2>📈 Recent Assessment Trend</h2><span class="muted">Latest saved quizzes and mocks</span></div><div id="trendList"></div></section>
+<section class="panel"><div class="panel-head"><h2>🔎 Performance Snapshot</h2></div><div id="performanceSnapshot" class="snapshot-grid"></div></section>
+</div></main>
+<script type="module" src="assets/performance.js"></script><script src="assets/access-popup.js"></script><script src="assets/menu.js"></script><script src="assets/pwa.js"></script></body></html>

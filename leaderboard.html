@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Leaderboard | SSC With Jagrat</title>
+  <link rel="stylesheet" href="assets/style.css"><script src="assets/theme.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo"><img src="assets/icons/logo-header.png" alt="SSC With Jagrat"></div><div><b>SSC WITH JAGRAT</b><small>SSC CGL 2026 • GK BATCH</small></div></div>
+  <div class="header-links"><a class="admin-link" href="index.html">← Subjects</a></div>
+</header>
+<main class="leaderboard-main">
+  <div class="page-nav-links"><a href="dashboard.html">← Dashboard</a><a href="daily-challenge.html">🔥 Daily Challenge</a><a href="progress-report.html">📊 Progress Report</a></div>
+  <section class="subject-hero">
+    <h1>🏆 Quiz Leaderboard</h1>
+    <p id="lbSub">Compete with students and track your rank.</p>
+  </section>
+
+  <section id="myNameCard" class="panel hidden">
+    <div class="panel-head"><h2>Your Display Name</h2></div>
+    <p class="lb-name-hint">This is the name shown on the leaderboard. Leave blank to stay anonymous.</p>
+    <form id="nameForm" class="lb-name-form">
+      <input id="displayNameInput" maxlength="30" placeholder="e.g. Rohit S.">
+      <button>Save</button>
+    </form>
+    <div id="nameMsg" class="msg"></div>
+  </section>
+
+  <section class="lb-tabs" aria-label="Leaderboard period">
+    <button class="lb-tab active" data-period="all">🏆 All-Time</button>
+    <button class="lb-tab" data-period="week">📅 Weekly</button>
+    <button class="lb-tab" data-period="month">🗓️ Monthly</button>
+  </section>
+
+  <section id="lbMyRank" class="lb-my-rank hidden"></section>
+  <section id="lbList" class="lb-list"><div class="empty">Loading leaderboard...</div></section>
+</main>
+<footer>© SSC With Jagrat • SSC CGL 2026</footer>
+<script type="module" src="assets/leaderboard.js"></script>
+<script src="assets/access-popup.js"></script><script src="assets/menu.js"></script>
+<script src="assets/pwa.js"></script>
+</body></html>

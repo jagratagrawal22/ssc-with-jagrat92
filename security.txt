@@ -1,0 +1,3 @@
+Contact: mailto:security@sscwithjagrat.com
+Preferred-Languages: en, hi
+Policy: https://sscwithjagrat.com/security.txt
