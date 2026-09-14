@@ -52,7 +52,10 @@
         <a class="side-menu-link" href="dashboard.html">🎯 My Dashboard</a>
         <a class="side-menu-link" href="performance.html">🧠 Performance & PYQ</a>
         <a class="side-menu-link" href="progress-report.html">📊 Progress Report</a>
-        <a class="side-menu-link" href="ai-study-assistant.html">🤖 AI Study Assistant</a>
+        <a class="side-menu-link" href="ai-study-assistant.html">🤖 AI Study Hub</a>
+        <a class="side-menu-link" href="ai-study-planner.html">📅 AI Study Planner</a>
+        <a class="side-menu-link" href="ai-doubt-solver.html">📷 AI Doubt Solver</a>
+        <a class="side-menu-link" href="ai-revision-generator.html">🧠 AI Revision Generator</a>
         <a class="side-menu-link" href="personalized-learning.html">🗺️ My Learning Path</a>
         <a class="side-menu-link" href="daily-challenge.html">🔥 Daily Challenge</a>
         <a class="side-menu-link" href="exam-simulator.html">📝 Exam Simulator</a>
